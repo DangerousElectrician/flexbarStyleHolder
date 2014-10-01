@@ -16,12 +16,12 @@ module showinside() {
 }
 
 module outside () {
-	cylinder(h = height, r1 = 1*od/2, r2 = 1*od/2);
+	cylinder(h = height, r = 1*od/2);
 	translate([-(.5*od),-(.5*od),height]) screwblock();
 }
 
 module inside() {
-	cylinder(h = (.5*od), r1 = 0.8*ballr, r2 = 0.8*ballr);
+	cylinder(h = (.5*od), r = 0.8*ballr);
 	translate([0,0,(.5*od)])
 		cylinder(h = ballr+od*.1+height-0.5*od, r1 = 0.8*ballr, r2 = 0);
 	translate([0,0,ballr*-.36])
@@ -33,7 +33,8 @@ module inside() {
 module screwblock() {
 	difference() {	
 		cube([od,od,od*3]);
-		translate([(-1),(.5*od),height/2]) holes();
+		translate([(-1),(.5*od),height/2]) 
+			holes();
 	}
 
 	module holes() {
