@@ -18,15 +18,15 @@ module showinside() {
 module outside () {
 	translate([0,0,od*.1+height])
 		sphere( r = ballr);
-	cylinder(h = height, r1 = 1*od/2, r2 = 1*od/2);
+	cylinder(h = height, r = 1*od/2);
 }
 
 module inside() {
-	cylinder(h = (.5*od), r1 = 0.8*ballr, r2 = 0.8*ballr);
+	cylinder(h = (.5*od), r = 0.8*ballr);
 	translate([0,0,(.5*od)])
 		cylinder(h = ballr+od*.1+height-0.5*od, r1 = 0.8*ballr, r2 = 0);
-	cylinder(h=height+od, r1=sr, r2=sr);
+	translate([0,0,((ballr+od*.1+height-0.5*od)-((ballr+od*.1+height-0.5*od)/(0.8*ballr))*sr)+(.5*od)]) //height of cone - (string radius * height of cone / radius of cone) + distance cone was translated
+		cylinder(h=height+od, r=sr);
 	translate([0,0,ballr*-.36])
-	//translate([0,0,od*-.2])
-		sphere(r=ballr*1);
+	sphere(r=ballr*1);
 }
