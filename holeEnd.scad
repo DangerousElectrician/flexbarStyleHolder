@@ -9,36 +9,37 @@ difference() {
 	inside();
 }
 
-showinside();
+//showinside();
 module showinside() {
 	translate([2*od,0,0])
 		inside();
 }
 
 module outside () {
-	//translate([0,0,od*.1+height])
-		//sphere( r = ballr);
 	cylinder(h = height, r1 = 1*od/2, r2 = 1*od/2);
-	screwblock();
+	translate([-(.5*od),-(.5*od),height]) screwblock();
 }
 
 module inside() {
 	cylinder(h = (.5*od), r1 = 0.8*ballr, r2 = 0.8*ballr);
 	translate([0,0,(.5*od)])
 		cylinder(h = ballr+od*.1+height-0.5*od, r1 = 0.8*ballr, r2 = 0);
-	cylinder(h=height+od*4, r1=sr, r2=sr);
 	translate([0,0,ballr*-.36])
-	//translate([0,0,od*-.2])
 		sphere(r=ballr*1);
+	translate([0,0,((ballr+od*.1+height-0.5*od)-((ballr+od*.1+height-0.5*od)/(0.8*ballr))*sr)+(.5*od)]) //height of cone - (string radius * height of cone / radius of cone) + distance cone was translated
+		cylinder(h=height+od*4, r=sr*1.8);
 }
 
 module screwblock() {
-	translate([-(.5*od),-(.5*od),height]) {
-		difference() {	
-			cube([od,od,od*3]);
-			translate([(-1),(.5*od),height/2]) rotate([0,90,0]) cylinder(h=od*2, r=od*.2);
+	difference() {	
+		cube([od,od,od*3]);
+		translate([(-1),(.5*od),height/2]) holes();
+	}
+
+	module holes() {
+		for(z=[0:2]) {
+			translate([0,0,z*height]) rotate([0,90,0]) cylinder(h=od*2, r=od*.2);
 		}
-		//translate([(0),(.5*od),height/2]) rotate([0,90,0]) cylinder(h=od, r1=od*.4, r2=od*.4);
 	}
 
 }
