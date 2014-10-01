@@ -1,8 +1,10 @@
 
-//link(25,25);
+link(25,25);
 
-module link(od, height) {//height cylindrical part of link
-//height cylindrical part of link
+module link(
+	od=25, //outer diameter
+	height=25 //height cylindrical part of link
+	) {
 	ballr=(od/2)*0.88; //radius of ball on top
 	sr=od*.13; //string radius
 
