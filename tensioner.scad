@@ -1,5 +1,5 @@
 use <link.scad>
-use <../Thread_Library.scad>
+use <../Thread_Library.scad> //takes soooooo loooong to compile
 
 length=100;
 pitch=10;

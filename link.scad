@@ -1,12 +1,15 @@
 
+//difference(){
 link(25,25);
+//translate([-25,0,0])cube([50,50,50]);
+//}
 
 module link(
 	od=25, //outer diameter
 	height=25 //height cylindrical part of link
 	) {
 	ballr=(od/2)*0.88; //radius of ball on top
-	sr=od*.13; //string radius
+	sr=od*.23; //string radius
 
 	difference() {
 		outside();
@@ -15,7 +18,7 @@ module link(
 
 	//showinside();
 	module showinside() {
-		translate([2*od,0,0])
+		translate([1.1*od,0,0])
 			inside();
 	}
 	
