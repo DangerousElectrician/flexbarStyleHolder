@@ -14,7 +14,7 @@ module screwblock() {
 		translate([(-1),(.5*od),height/2]) 
 			holes();
 		
-		translate([od/2,od/2,0]) cylinder(r=od*.2,h=height*3);
+		translate([od/2,od/2,0]) cylinder(r=od*.3,h=height*3);
 	}
 
 

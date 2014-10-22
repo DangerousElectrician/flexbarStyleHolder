@@ -8,6 +8,7 @@ module link(
 	od=25, //outer diameter
 	height=25 //height cylindrical part of link
 	) {
+
 	ballr=(od/2)*0.88; //radius of ball on top
 	sr=od*.23; //string radius
 
@@ -23,7 +24,7 @@ module link(
 	}
 	
 	module outside () {
-		translate([0,0,od*.1+height])
+		translate([0,0,od*.021+height])
 			sphere( r = ballr);
 		cylinder(h = height, r = 1*od/2);
 	}
