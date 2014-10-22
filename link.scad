@@ -1,9 +1,6 @@
-
-
-
 $fn=100;//make things smoother but slows down rendering, uncomment when generating stl
 
-//cutaway = true;
+//cutaway = true; //uncomment for cutaway
 
 if(cutaway==true) {
 	difference(){

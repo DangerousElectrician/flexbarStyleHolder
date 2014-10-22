@@ -1,3 +1,5 @@
+$fn=100; ////make things smoother but slows down rendering, uncomment when generating stl
+
 use<link.scad>
 od = 25;
 height = 25;
