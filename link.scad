@@ -1,8 +1,18 @@
 
-//difference(){
-link(25,25);
-//translate([-25,0,0])cube([50,50,50]);
-//}
+
+
+$fn=100;//make things smoother but slows down rendering, uncomment when generating stl
+
+//cutaway = true;
+
+if(cutaway==true) {
+	difference(){
+		link(12.5,12.5);
+		translate([-25,0,0])cube([50,50,50]);
+	}
+} else {
+	link(12.5,12.5);
+}
 
 module link(
 	od=25, //outer diameter
